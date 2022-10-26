@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:51:25 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:14:11 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/26 14:40:22 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,4 @@ std::string Dog::getType( void ) const
 Brain *Dog::getBrain( void ) const
 {
 	return (this->brain);
-}
-
-void Dog::compareTo(Dog const & other_dog) const
-{
-	std::cout << std::endl;
-	std::cout << "Now comparing two dogs\n";
-	std::cout << "My brain's heap address: " << static_cast<void*>(this->brain) << std::endl;
-	std::cout << "Other's heap address: " << static_cast<void*>(other_dog.getBrain()) << std::endl;
-	std::cout << std::endl;
-	std::cout << "My brain's ideas \t\t | \t\t\t Other brain's ideas\n";
-	for (int i = 0; i < 100; i++)
-		std::cout << "-";
-	std::cout << std::endl;
-	for (int i = 0; i < 100; i++)
-		std::cout << ((this->brain)->getIdeas())[i] << "\t\t\t | \t\t\t" << ((other_dog.getBrain())->getIdeas())[i] << std::endl;
-	std::cout << std::endl;
 }
