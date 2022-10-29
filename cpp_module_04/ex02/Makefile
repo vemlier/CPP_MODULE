@@ -6,7 +6,7 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 13:52:42 by chukim            #+#    #+#              #
-#    Updated: 2022/10/26 13:52:43 by chukim           ###   ########.fr        #
+#    Updated: 2022/10/29 14:57:14 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC			=	main.cpp \
 				AAnimal.cpp
 OBJS		=	$(SRC:.cpp=.o)
 CC			=	c++
-FLAGS		=	-Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 EXE_NAME	=	-o $(NAME)
 EXEC		=	$(NAME)
 

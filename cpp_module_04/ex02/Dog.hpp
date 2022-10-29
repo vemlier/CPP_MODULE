@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:52:34 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:26:09 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:59:43 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Dog: public AAnimal
 {
 	private:
-		std::string	type;
 		Brain		*brain;
 
 	public:
@@ -28,7 +27,6 @@ class Dog: public AAnimal
 		Dog(const Dog & ref);
 		Dog & operator=(const Dog & rhs);
 		void makeSound() const;
-		std::string getType(void) const;
 		Brain *getBrain(void) const;
 };
 

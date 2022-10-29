@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:52:20 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:25:51 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:59:29 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ Cat::Cat()
 {
 	this->type = "Cat";
 	this->brain = new Brain;
-	std::cout << "A cat was constructed, with its new brain\n";
+	std::cout << "A cat was constructed with its brain\n";
 }
 
 Cat::~Cat()
 {
 	delete this->brain;
-	std::cout << "A cat was destroyed, his brain deleted\n";
+	std::cout << "A cat was destroyed and his brain deleted\n";
 }
 
 Cat::Cat(const Cat & ref)
 {
 	this->type = ref.getType();
 	this->brain = new Brain(*(ref.getBrain()));
-	std::cout << "A cat was constructed from copy, but has a brain on its own\n";
+	std::cout << "A cat was constructed as a copy with its brain\n";
 }
 
 Cat & Cat::operator=(const Cat & rhs)
@@ -45,11 +45,6 @@ Cat & Cat::operator=(const Cat & rhs)
 void Cat::makeSound() const
 {
 	std::cout << "Meow meow\n";
-}
-
-std::string Cat::getType(void) const
-{
-	return (this->type);
 }
 
 Brain *Cat::getBrain(void) const

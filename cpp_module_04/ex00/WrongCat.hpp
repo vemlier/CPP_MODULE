@@ -23,8 +23,8 @@ class WrongCat: public WrongAnimal
 	public:
 		WrongCat();
 		~WrongCat();
-		WrongCat(WrongCat & ref);
-		WrongCat & operator=(WrongCat const & rhs);
+		WrongCat(const WrongCat & ref);
+		WrongCat & operator=(const WrongCat & rhs);
 		void makeSound() const;
 };
 

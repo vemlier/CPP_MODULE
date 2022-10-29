@@ -23,13 +23,13 @@ WrongCat::~WrongCat()
 	std::cout << "A wrong cat was destroyed\n";
 }
 
-WrongCat::WrongCat(WrongCat & ref)
+WrongCat::WrongCat(const WrongCat & ref)
 {
 	this->type = ref.getType();
 	std::cout << "A cat was constructed from copy\n";
 }
 
-WrongCat & WrongCat::operator=(WrongCat const & rhs)
+WrongCat & WrongCat::operator=(const WrongCat & rhs)
 {
 	this->type = rhs.type;
 	return (*this);

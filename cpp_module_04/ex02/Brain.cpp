@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:52:13 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:24:26 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 14:56:29 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Brain::Brain(const Brain & ref)
 	std::string *ref_ideas = ref.getIdeas();
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = ref_ideas[i] + " stolen";
+		this->ideas[i] = ref_ideas[i];
 	std::cout << "A copied brain constructed\n";
 }
 

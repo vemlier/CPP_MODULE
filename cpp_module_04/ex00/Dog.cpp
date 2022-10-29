@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:50:04 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 13:50:05 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:57:09 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ Dog::~Dog()
 Dog::Dog(const Dog & ref)
 {
 	this->type = ref.getType();
-	std::cout << "A dog was constructed from copy\n";
+	std::cout << "A dog was constructed as a copy\n";
 }
 
-Dog & Dog::operator=(Dog const & rhs)
+Dog & Dog::operator=(const Dog & rhs)
 {
 	this->type = rhs.type;
 	return (*this);
@@ -38,9 +38,4 @@ Dog & Dog::operator=(Dog const & rhs)
 void Dog::makeSound() const
 {
 	std::cout << "Wal Wal\n";
-}
-
-std::string Dog::getType(void) const
-{
-	return (this->type);
 }

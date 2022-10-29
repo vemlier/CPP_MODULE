@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:49:53 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 13:49:54 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:57:41 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::~Cat()
 Cat::Cat(const Cat & ref)
 {
 	this->type = ref.getType();
-	std::cout << "A cat was constructed from copy\n";
+	std::cout << "A cat was constructed as a copy\n";
 }
 
 Cat & Cat::operator=(Cat const & rhs)
@@ -38,9 +38,4 @@ Cat & Cat::operator=(Cat const & rhs)
 void Cat::makeSound() const
 {
 	std::cout << "Meow meow\n";
-}
-
-std::string Cat::getType(void) const
-{
-	return (this->type);
 }

@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:51:01 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 13:56:28 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 08:31:03 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
 		Animal(const Animal & ref);
 		Animal & operator=(const Animal & rhs);
 
-		virtual std::string getType(void) const;
+		std::string getType(void) const;
 		virtual void makeSound() const;
 };
 

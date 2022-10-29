@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:51:21 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:40:09 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 14:55:31 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
 class Cat: public Animal
 {
 	private:
-		std::string	type;
-		Brain		*brain;
+		Brain	*brain;
 
 	public:
 		Cat();
 		~Cat();
-		Cat(Cat & ref);
+		Cat(const Cat & ref);
 		Cat & operator=(const Cat & rhs);
 		void makeSound() const;
-		std::string getType(void) const;
 		Brain *getBrain(void) const;
+		void compareTo(Cat const & other_dog) const;
 };
 
 #endif

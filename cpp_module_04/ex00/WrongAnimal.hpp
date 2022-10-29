@@ -15,7 +15,6 @@
 
 # include <iostream>
 
-// Abstract class Animal
 class WrongAnimal
 {
 	protected:
@@ -23,15 +22,12 @@ class WrongAnimal
 
 	public:
 		WrongAnimal();
-		virtual ~WrongAnimal();
-		WrongAnimal(WrongAnimal & ref);
-		WrongAnimal & operator=(WrongAnimal const & rhs);
+		~WrongAnimal();
+		WrongAnimal(const WrongAnimal & ref);
+		WrongAnimal & operator=(const WrongAnimal & rhs);
 
-		// virtual member function = "method"
-		// this makes the program to decide which method to use during the 
-		// execution (and not compilation)
 		void makeSound() const;
-		std::string getType( void ) const;
+		std::string getType(void) const;
 };
 
 #endif

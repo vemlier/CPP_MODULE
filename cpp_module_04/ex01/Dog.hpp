@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:51:29 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:40:04 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:58:19 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
 class Dog: public Animal
 {
 	private:
-		std::string	type;
-		Brain		*brain;
+		Brain	*brain;
 
 	public:
 		Dog();
 		~Dog();
-		Dog(Dog & ref);
+		Dog(const Dog & ref);
 		Dog & operator=(const Dog & rhs);
 		void makeSound() const;
-		std::string getType(void) const;
 		Brain *getBrain(void) const;
+		void compareTo(Dog const & other_dog) const;
 };
 
 #endif

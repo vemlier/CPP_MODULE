@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:52:29 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/26 14:26:04 by chukim           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:59:34 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::Dog()
 Dog::~Dog()
 {
 	delete this->brain;
-	std::cout << "A dog was destroyed, its brain too\n";
+	std::cout << "A dog was destroyed and his brain deleted\n";
 }
 
 Dog::Dog(const Dog & ref)
@@ -31,7 +31,7 @@ Dog::Dog(const Dog & ref)
 	std::cout << "Creating a copy dog brain\n";
 	this->brain = new Brain(*(ref.getBrain()));
 	this->type = ref.getType();
-	std::cout << "A dog was constructed from a dog copy, but has a brain on its own\n";
+	std::cout << "A dog was constructed as a dog copy. It has a brain\n";
 }
 
 Dog & Dog::operator=(const Dog & rhs)
@@ -46,11 +46,6 @@ Dog & Dog::operator=(const Dog & rhs)
 void Dog::makeSound() const
 {
 	std::cout << "Wal Wal\n";
-}
-
-std::string Dog::getType(void) const
-{
-	return (this->type);
 }
 
 Brain *Dog::getBrain(void) const
