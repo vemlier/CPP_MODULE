@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:39:17 by chukim            #+#    #+#             */
-/*   Updated: 2022/11/17 11:48:58 by chukim           ###   ########.fr       */
+/*   Updated: 2022/11/21 13:25:38 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 // -------------------------- REQUIRED FUNCTIONS ------------------------------
 
 template<typename T>
-void swap(T & x, T & y){
+void swap(T & x, T & y)
+{
 	T	temp;
 	temp = x;
 	x = y;
@@ -26,12 +27,14 @@ void swap(T & x, T & y){
 }
 
 template<typename T>
-T const &	min(T const & x, T const & y) {
+T const &	min(T const & x, T const & y)
+{
 	return (x < y ? x : y);
 }
 
 template<typename T>
-T const &	max(T const & x, T const & y) {
+T const &	max(T const & x, T const & y)
+{
 	return (x > y ? x : y);
 }
 

@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 11:25:05 by chukim            #+#    #+#             */
-/*   Updated: 2022/11/17 12:04:14 by chukim           ###   ########.fr       */
+/*   Updated: 2022/11/21 13:25:13 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,22 @@ class Array
 		}
 		
 		// Getters:
-		T 				*getT(void) const {return (t);}
-		unsigned int	size(void) const {return (n);}
+		T	*getT(void) const
+		{
+			return (t);
+		}
+
+		unsigned int	size(void) const 
+		{
+			return (n);
+		}
 	
 	private:
 		T				*t;
 		unsigned int	n;
 };
 
-template< typename T >
+template<typename T>
 std::ostream & operator<<(std::ostream & o, Array< T > const & ref)
 {
 	for (unsigned int i = 0; i < ref.size(); i++)

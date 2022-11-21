@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 10:39:01 by chukim            #+#    #+#             */
-/*   Updated: 2022/11/17 11:48:25 by chukim           ###   ########.fr       */
+/*   Updated: 2022/11/21 13:25:21 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	display(T const &t)
 	std::cout << t << " ";
 }
 
-template< typename T>
+template<typename T>
 void tests(T t, int len, std::string type)
 {
 	std::cout << std::endl << type << std::endl;
