@@ -6,36 +6,36 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 14:23:28 by chukim            #+#    #+#              #
-#    Updated: 2022/10/13 12:17:34 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 09:57:54 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME		=	replace
 SRC			=	main.cpp 
 OBJS		=	$(SRC:.cpp=.o)
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
-FILES		=	a.replace
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+FILES		=	test.replace
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
-	rm -rf $(FILES);
+	rm -rf $(FILES)
 	
-re:	fclean all
-
-.cpp.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+re:	
+	make fclean 
+	make all
 
 test: all
-	./$(NAME) a a good
+	./$(NAME) test a b
 
-.PHONY:	all clean fclean re test1 test2 test3 test4
+.PHONY:	all clean fclean re test

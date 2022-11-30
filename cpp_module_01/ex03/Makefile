@@ -6,7 +6,7 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 14:22:14 by chukim            #+#    #+#              #
-#    Updated: 2022/09/29 17:21:45 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 09:53:13 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,15 @@ SRC			=	main.cpp \
 				HumanA.cpp \
 				HumanB.cpp
 OBJS		=	$(SRC:.cpp=.o)
-CC			=	c++
-cFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
@@ -30,9 +32,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	
-re:	fclean all
-
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:	
+	make fclean 
+	make all
 
 .PHONY:	all clean fclean re

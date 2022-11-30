@@ -16,13 +16,15 @@ SRC			=	main.cpp \
 				randomChump.cpp \
 				Zombie.cpp
 OBJS		=	$(SRC:.cpp=.o)
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
@@ -30,9 +32,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	
-re:	fclean all
-
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:
+	make fclean
+	make all
 
 .PHONY:	all clean fclean re

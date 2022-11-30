@@ -6,7 +6,7 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 14:18:19 by chukim            #+#    #+#              #
-#    Updated: 2022/09/29 16:57:52 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 09:52:50 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,15 @@ SRC			=	main.cpp \
 				ZombieHorde.cpp \
 				Zombie.cpp
 OBJS		=	$(SRC:.cpp=.o)
-CC		=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
@@ -29,9 +31,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	
-re:	fclean all
-
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:
+	make fclean 
+	make all
 
 .PHONY:	all clean fclean re
