@@ -6,40 +6,36 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 13:50:20 by chukim            #+#    #+#              #
-#    Updated: 2022/10/26 13:50:21 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 14:59:43 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	ex00
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				Animal.cpp \
 				Cat.cpp \
 				Dog.cpp \
 				WrongAnimal.cpp \
 				WrongCat.cpp 
-OBJS		=	$(SRC:.cpp=.o)
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
-EXE_NAME	=	-o $(NAME)
-EXEC		=	$(NAME)
+OBJS		=	$(SRCS:.cpp=.o)
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(EXE_NAME)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run: $(NAME)
-	./$(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(EXEC)
+	rm -rf $(NAME)
 	
-re:	fclean all
+re:
+	make fclean
+	make all
 
-.cpp.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
-
-.PHONY:	all clean fclean re run
+.PHONY:	all clean fclean re
