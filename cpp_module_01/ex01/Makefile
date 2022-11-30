@@ -6,15 +6,15 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 14:18:19 by chukim            #+#    #+#              #
-#    Updated: 2022/11/30 09:52:50 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 11:49:07 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	ex01
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				ZombieHorde.cpp \
 				Zombie.cpp
-OBJS		=	$(SRC:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

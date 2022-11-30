@@ -6,13 +6,13 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 14:23:28 by chukim            #+#    #+#              #
-#    Updated: 2022/11/30 09:57:54 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 11:48:45 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	replace
-SRC			=	main.cpp 
-OBJS		=	$(SRC:.cpp=.o)
+SRCS		=	main.cpp 
+OBJS		=	$(SRCS:.cpp=.o)
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 FILES		=	test.replace
 

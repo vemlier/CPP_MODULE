@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 NAME		=	ex00
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				newZombie.cpp \
 				randomChump.cpp \
 				Zombie.cpp
-OBJS		=	$(SRC:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

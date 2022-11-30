@@ -6,16 +6,16 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 14:22:14 by chukim            #+#    #+#              #
-#    Updated: 2022/11/30 09:53:13 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 11:48:53 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	ex03
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				Weapon.cpp \
 				HumanA.cpp \
 				HumanB.cpp
-OBJS		=	$(SRC:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
