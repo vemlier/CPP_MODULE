@@ -6,37 +6,33 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 07:49:30 by chukim            #+#    #+#              #
-#    Updated: 2022/11/01 07:50:13 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 15:03:33 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	converter
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				Converter.cpp
-OBJS		=	$(SRC:.cpp=.o)
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -pedantic
-EXE_NAME	=	-o $(NAME)
-EXEC		=	$(NAME)
+OBJS		=	$(SRCS:.cpp=.o)
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(EXE_NAME)
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run: $(NAME)
-	./$(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(EXEC)
+	rm -rf $(NAME)
 	
-re:	fclean all
-
-%.o : %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:
+	make fclean
+	make all
 
 # ------------------------------------- TESTS ---------------------------------
 
@@ -49,4 +45,4 @@ test2: $(NAME)
 test3: $(NAME)
 	./$(NAME) 42.0f
 
-.PHONY:	all clean fclean re run test1 test2 test3
+.PHONY:	all clean fclean re test1 test2 test3
