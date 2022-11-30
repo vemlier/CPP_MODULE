@@ -6,38 +6,34 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 09:50:23 by chukim            #+#    #+#              #
-#    Updated: 2022/10/20 09:50:51 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 12:00:15 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	ex02
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				ClapTrap.cpp \
 				ScavTrap.cpp \
 				FragTrap.cpp
-OBJS		=	$(SRC:.cpp=.o)
-CC		=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
-EXE_NAME	=	-o $(NAME)
-EXEC		=	$(NAME)
+OBJS		=	$(SRCS:.cpp=.o)
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(EXE_NAME)
+%.o: %.CPP
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run: $(NAME)
-	./$(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(EXEC)
+	rm -rf $(NAME)
 	
-re:	fclean all
-
-.cpp.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:
+	make fclean
+	make all
 
 .PHONY:	all clean fclean re run
