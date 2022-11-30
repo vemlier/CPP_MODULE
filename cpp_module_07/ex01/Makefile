@@ -6,35 +6,31 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 10:33:24 by chukim            #+#    #+#              #
-#    Updated: 2022/11/17 10:34:23 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 15:12:08 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	ex01
-SRC		=	main.cpp 
-OBJS	=	$(SRC:.cpp=.o)
-CC		=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -pedantic
-EXE_NAME	=	-o $(NAME)
-EXEC		=	$(NAME)
+SRCS	=	main.cpp 
+OBJS	=	$(SRCS:.cpp=.o)
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(EXE_NAME)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run: $(NAME)
-	./$(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(EXEC)
+	rm -rf $(NAME)
 	
-re:	fclean all
+re:
+	make fclean
+	make all
 
-%.o : %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
-
-.PHONY:	all clean fclean re run
+.PHONY:	all clean fclean re
