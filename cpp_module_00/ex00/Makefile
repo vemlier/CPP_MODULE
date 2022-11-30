@@ -6,20 +6,22 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 10:54:15 by chukim            #+#    #+#              #
-#    Updated: 2022/09/29 16:08:28 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 09:36:55 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	megaphone
-SRC			=	megaphone.cpp
-OBJS		=	$(SRC:.cpp=.o)
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+SRCS		=	megaphone.cpp
+OBJS		=	$(SRCS:.cpp=.o)
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
@@ -27,10 +29,9 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	
-re:	fclean all
-
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:
+	make fclean
+	make all
 
 test1: all
 	./$(NAME) "shhhhh... I think the students are asleep..."

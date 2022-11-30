@@ -6,7 +6,7 @@
 /*   By: chukim <chukim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 10:52:35 by chukim            #+#    #+#             */
-/*   Updated: 2022/10/03 10:12:42 by chukim           ###   ########.fr       */
+/*   Updated: 2022/11/30 09:41:58 by chukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_search(Phonebook *phonebook, int i)
 		first_name = (*phonebook).get_first_name(j - 1);
 		last_name = (*phonebook).get_last_name(j - 1);
 		nickname = (*phonebook).get_nickname(j - 1);
-		if (first_name.length() >= 10)
+		if (first_name.length() > 10)
 		{
 			first_name.resize(9);
 			first_name.resize(10, '.');

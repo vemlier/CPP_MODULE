@@ -6,22 +6,24 @@
 #    By: chukim <chukim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 10:52:27 by chukim            #+#    #+#              #
-#    Updated: 2022/09/29 16:08:24 by chukim           ###   ########.fr        #
+#    Updated: 2022/11/30 09:36:40 by chukim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	phonebook
-SRC			=	main.cpp \
+SRCS		=	main.cpp \
 				Contact.cpp \
 				Phonebook.cpp
-OBJS		=	$(SRC:.cpp=.o)
-CC		=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+OBJS		=	$(SRCS:.cpp=.o)
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
@@ -29,9 +31,8 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 	
-re:	fclean all
-
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+re:
+	make fclean
+	make all
 
 .PHONY:	all clean fclean re
